@@ -1,0 +1,1148 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     49249,       1140]
+NotebookOptionsPosition[     42102,       1023]
+NotebookOutlinePosition[     42508,       1039]
+CellTagsIndexPosition[     42465,       1036]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Converting data from .mx to .json", "Title",
+ CellChangeTimes->{{3.826093082987217*^9, 3.8260931093788795`*^9}, {
+  3.84726249233902*^9, 3.847262508479722*^9}, {3.8483979330783463`*^9, 
+  3.848397937723014*^9}, {3.8913542740003533`*^9, 
+  3.891354284620446*^9}},ExpressionUUID->"38343200-fd6c-4633-a263-\
+bc3dba2e0ff8"],
+
+Cell["\<\
+Supplementary material for Fischer et al \"The salt-and-pepper pattern in \
+mouse blastocysts is compatible with signalling beyond the nearest \
+neighbours.\"\
+\>", "Subtitle",
+ CellChangeTimes->{{3.891317102145341*^9, 
+  3.8913171052115183`*^9}},ExpressionUUID->"e0348bdc-d68e-4e3c-8c83-\
+5d05171355a2"],
+
+Cell[CellGroupData[{
+
+Cell["Data set I", "Section",
+ CellChangeTimes->{{3.8913397208993187`*^9, 
+  3.89133972435098*^9}},ExpressionUUID->"863aaa12-f137-4d4d-b4b9-\
+32c4b5fdbcc5"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"fileNamesJLG2021", "=", 
+   RowBox[{"FileNames", "[", 
+    RowBox[{"\"\<*FinalData.mx\>\"", ",", 
+     RowBox[{"FileNameJoin", "[", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"ParentDirectory", "[", 
+         RowBox[{"NotebookDirectory", "[", "]"}], "]"}], ",", 
+        "\"\<dataPreprocessing\>\"", ",", "\"\<JLG_2021_NG6\>\"", ",", 
+        "\"\<EmbryoFeatures\>\""}], "}"}], "]"}]}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.780831272215437*^9, 3.7808313292124515`*^9}, 
+   3.781863769216737*^9, 3.8913400182877455`*^9, 3.8913400579827166`*^9, {
+   3.8913402103455744`*^9, 3.891340220308651*^9}},
+ CellLabel->
+  "In[212]:=",ExpressionUUID->"9dab6e71-2c08-439d-a5c0-f82b02eb7505"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"Export", "[", 
+     RowBox[{
+      RowBox[{"FileNameJoin", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"NotebookDirectory", "[", "]"}], ",", "\"\<Data Set I\>\"", 
+         ",", "\"\<Processed Data\>\"", ",", 
+         RowBox[{
+          RowBox[{"FileBaseName", "[", "#", "]"}], "<>", "\"\<.json\>\""}]}], 
+        "}"}], "]"}], ",", 
+      RowBox[{"Import", "[", "#", "]"}], ",", "\"\<ExpressionJSON\>\""}], 
+     "]"}], "&"}], "/@", "fileNamesJLG2021"}], ";"}]], "Input",
+ CellChangeTimes->{{3.7808314587238503`*^9, 3.7808314626231947`*^9}, 
+   3.780831506587288*^9, {3.780831558226982*^9, 3.7808315752222357`*^9}, {
+   3.7808316315055013`*^9, 3.780831643410425*^9}, 3.7814326390535154`*^9, {
+   3.781863806178314*^9, 3.7818638356244993`*^9}, {3.781863870076352*^9, 
+   3.781863880995703*^9}, {3.8913400443431067`*^9, 3.891340048408159*^9}, 
+   3.8913401109306917`*^9, {3.891340212716953*^9, 3.8913402239881086`*^9}},
+ CellLabel->
+  "In[213]:=",ExpressionUUID->"046e21d0-91fd-4c79-8421-cc4602bee04a"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"fileNamesSMD2021", "=", 
+   RowBox[{"FileNames", "[", 
+    RowBox[{"\"\<*FinalData.mx\>\"", ",", 
+     RowBox[{"FileNameJoin", "[", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"ParentDirectory", "[", 
+         RowBox[{"NotebookDirectory", "[", "]"}], "]"}], ",", 
+        "\"\<dataPreprocessing\>\"", ",", "\"\<SMD_2021_NG6G4\>\"", ",", 
+        "\"\<EmbryoFeatures\>\""}], "}"}], "]"}]}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.780831272215437*^9, 3.7808313292124515`*^9}, 
+   3.781863769216737*^9, 3.8913400182877455`*^9, 3.8913400579827166`*^9, 
+   3.891340145352393*^9, {3.8913402259625998`*^9, 3.891340227579134*^9}},
+ CellLabel->
+  "In[214]:=",ExpressionUUID->"23f1a5f7-cb0b-4a2a-8070-3899a470709a"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"Export", "[", 
+     RowBox[{
+      RowBox[{"FileNameJoin", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"NotebookDirectory", "[", "]"}], ",", "\"\<Data Set I\>\"", 
+         ",", "\"\<Processed Data\>\"", ",", 
+         RowBox[{
+          RowBox[{"FileBaseName", "[", "#", "]"}], "<>", "\"\<.json\>\""}]}], 
+        "}"}], "]"}], ",", 
+      RowBox[{"Import", "[", "#", "]"}], ",", "\"\<ExpressionJSON\>\""}], 
+     "]"}], "&"}], "/@", "fileNamesSMD2021"}], ";"}]], "Input",
+ CellChangeTimes->{{3.7808314587238503`*^9, 3.7808314626231947`*^9}, 
+   3.780831506587288*^9, {3.780831558226982*^9, 3.7808315752222357`*^9}, {
+   3.7808316315055013`*^9, 3.780831643410425*^9}, 3.7814326390535154`*^9, {
+   3.781863806178314*^9, 3.7818638356244993`*^9}, {3.781863870076352*^9, 
+   3.781863880995703*^9}, {3.8913400443431067`*^9, 3.891340048408159*^9}, 
+   3.8913401109306917`*^9, 3.891340231214171*^9},
+ CellLabel->
+  "In[215]:=",ExpressionUUID->"cedf1818-40f1-41df-b765-2ca1a5874138"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"fileNamesDataSetI", "=", 
+   RowBox[{"FileNames", "[", 
+    RowBox[{"\"\<*.json\>\"", ",", 
+     RowBox[{"FileNameJoin", "[", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"NotebookDirectory", "[", "]"}], ",", "\"\<Data Set I\>\"", 
+        ",", "\"\<Processed Data\>\""}], "}"}], "]"}]}], "]"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.8913401644220486`*^9, 3.8913402031620913`*^9}, {
+  3.8913402376980004`*^9, 3.8913402472027807`*^9}},
+ CellLabel->
+  "In[216]:=",ExpressionUUID->"5f887b3c-b517-4f4b-ac13-664104690896"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Length", "[", "fileNamesDataSetI", "]"}]], "Input",
+ CellChangeTimes->{{3.89134020460931*^9, 3.891340206831665*^9}, 
+   3.8913402574502325`*^9},
+ CellLabel->
+  "In[217]:=",ExpressionUUID->"362d507d-977f-4c49-b9fd-9c9dbb66ed7e"],
+
+Cell[BoxData["251"], "Output",
+ CellChangeTimes->{3.891340207392634*^9, 3.8913403462406034`*^9},
+ CellLabel->
+  "Out[217]=",ExpressionUUID->"5f570d2d-b0c9-4f78-9d5e-5f838f49f139"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Length", "[", "fileNamesJLG2021", "]"}], "+", 
+  RowBox[{"Length", "[", "fileNamesSMD2021", "]"}]}]], "Input",
+ CellChangeTimes->{{3.8913402649216022`*^9, 3.8913402737790966`*^9}},
+ CellLabel->
+  "In[218]:=",ExpressionUUID->"0ac08a5d-b92d-44f8-b2d5-4cd2e808d166"],
+
+Cell[BoxData["251"], "Output",
+ CellChangeTimes->{3.8913402745763836`*^9, 3.8913403462406034`*^9},
+ CellLabel->
+  "Out[218]=",ExpressionUUID->"e8ea516d-ffa1-412a-8c5f-8deeb87872e8"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"neighFNamesJLG2021", "=", 
+   RowBox[{"FileNames", "[", 
+    RowBox[{"\"\<*Comp.mx\>\"", ",", 
+     RowBox[{"FileNameJoin", "[", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"ParentDirectory", "[", 
+         RowBox[{"NotebookDirectory", "[", "]"}], "]"}], ",", 
+        "\"\<dataPreprocessing\>\"", ",", "\"\<JLG_2021_NG6\>\"", ",", 
+        "\"\<Results\>\""}], "}"}], "]"}]}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.891350806354557*^9, 3.8913508700301886`*^9}, {
+  3.8913538740331564`*^9, 3.8913538799553213`*^9}},
+ CellLabel->"In[3]:=",ExpressionUUID->"509b7f76-74a7-427d-b88a-6a7c0c1df920"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"Export", "[", 
+     RowBox[{
+      RowBox[{"FileNameJoin", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"NotebookDirectory", "[", "]"}], ",", "\"\<Data Set I\>\"", 
+         ",", "\"\<Neighbour Comp Files\>\"", ",", 
+         RowBox[{
+          RowBox[{"FileBaseName", "[", "#", "]"}], "<>", 
+          "\"\<JLG.json\>\""}]}], "}"}], "]"}], ",", 
+      RowBox[{"Import", "[", "#", "]"}], ",", "\"\<ExpressionJSON\>\""}], 
+     "]"}], "&"}], "/@", "neighFNamesJLG2021"}], ";"}]], "Input",
+ CellChangeTimes->{{3.7808314587238503`*^9, 3.7808314626231947`*^9}, 
+   3.780831506587288*^9, {3.780831558226982*^9, 3.7808315752222357`*^9}, {
+   3.7808316315055013`*^9, 3.780831643410425*^9}, 3.7814326390535154`*^9, {
+   3.781863806178314*^9, 3.7818638356244993`*^9}, {3.781863870076352*^9, 
+   3.781863880995703*^9}, {3.8913400443431067`*^9, 3.891340048408159*^9}, 
+   3.8913401109306917`*^9, {3.891340212716953*^9, 3.8913402239881086`*^9}, {
+   3.891350911285754*^9, 3.8913509218146906`*^9}, 3.891353883967783*^9, {
+   3.891353925244633*^9, 3.8913539259320135`*^9}},
+ CellLabel->"In[4]:=",ExpressionUUID->"3f496b06-efc8-4467-a614-2f252b07dfa6"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"neighFNamesSMD2021", "=", 
+   RowBox[{"FileNames", "[", 
+    RowBox[{"\"\<*Comp.mx\>\"", ",", 
+     RowBox[{"FileNameJoin", "[", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"ParentDirectory", "[", 
+         RowBox[{"NotebookDirectory", "[", "]"}], "]"}], ",", 
+        "\"\<dataPreprocessing\>\"", ",", "\"\<SMD_2021_NG6G4\>\"", ",", 
+        "\"\<Results\>\""}], "}"}], "]"}]}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.891350806354557*^9, 3.8913508700301886`*^9}, {
+  3.8913538740331564`*^9, 3.8913538799553213`*^9}, {3.8913539468434796`*^9, 
+  3.8913539543237276`*^9}},
+ CellLabel->"In[5]:=",ExpressionUUID->"1533ddce-bc15-46fd-b725-6c805d73448b"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"Export", "[", 
+     RowBox[{
+      RowBox[{"FileNameJoin", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"NotebookDirectory", "[", "]"}], ",", "\"\<Data Set I\>\"", 
+         ",", "\"\<Neighbour Comp Files\>\"", ",", 
+         RowBox[{
+          RowBox[{"FileBaseName", "[", "#", "]"}], "<>", 
+          "\"\<SMD.json\>\""}]}], "}"}], "]"}], ",", 
+      RowBox[{"Import", "[", "#", "]"}], ",", "\"\<ExpressionJSON\>\""}], 
+     "]"}], "&"}], "/@", "neighFNamesSMD2021"}], ";"}]], "Input",
+ CellChangeTimes->{{3.7808314587238503`*^9, 3.7808314626231947`*^9}, 
+   3.780831506587288*^9, {3.780831558226982*^9, 3.7808315752222357`*^9}, {
+   3.7808316315055013`*^9, 3.780831643410425*^9}, 3.7814326390535154`*^9, {
+   3.781863806178314*^9, 3.7818638356244993`*^9}, {3.781863870076352*^9, 
+   3.781863880995703*^9}, {3.8913400443431067`*^9, 3.891340048408159*^9}, 
+   3.8913401109306917`*^9, {3.891340212716953*^9, 3.8913402239881086`*^9}, {
+   3.891350911285754*^9, 3.8913509218146906`*^9}, 3.891353883967783*^9, {
+   3.891353925244633*^9, 3.8913539259320135`*^9}, {3.8913539571048813`*^9, 
+   3.891353960670061*^9}},
+ CellLabel->"In[6]:=",ExpressionUUID->"ae8332fc-5a84-4931-aa69-e29038448010"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Data set II", "Section",
+ CellChangeTimes->{{3.8913402815633*^9, 
+  3.891340284855686*^9}},ExpressionUUID->"489760c8-7154-46e4-af0b-\
+5ec44e3dc54f"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"fileNamesSMD2020", "=", 
+   RowBox[{"FileNames", "[", 
+    RowBox[{"\"\<*FinalData.mx\>\"", ",", 
+     RowBox[{"FileNameJoin", "[", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"ParentDirectory", "[", 
+         RowBox[{"NotebookDirectory", "[", "]"}], "]"}], ",", 
+        "\"\<dataPreprocessing\>\"", ",", "\"\<SMD_2020_NG6\>\"", ",", 
+        "\"\<EmbryoFeatures\>\""}], "}"}], "]"}]}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.780831272215437*^9, 3.7808313292124515`*^9}, 
+   3.781863769216737*^9, 3.8913400182877455`*^9, 3.8913400579827166`*^9, {
+   3.8913402103455744`*^9, 3.891340220308651*^9}, {3.8913403020803967`*^9, 
+   3.8913403097729616`*^9}},
+ CellLabel->
+  "In[219]:=",ExpressionUUID->"57e127e1-7bcc-4564-8260-0c572ce1c6a6"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"Export", "[", 
+     RowBox[{
+      RowBox[{"FileNameJoin", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"NotebookDirectory", "[", "]"}], ",", "\"\<Data Set II\>\"", 
+         ",", "\"\<Processed Data\>\"", ",", 
+         RowBox[{
+          RowBox[{"FileBaseName", "[", "#", "]"}], "<>", "\"\<.json\>\""}]}], 
+        "}"}], "]"}], ",", 
+      RowBox[{"Import", "[", "#", "]"}], ",", "\"\<ExpressionJSON\>\""}], 
+     "]"}], "&"}], "/@", "fileNamesSMD2020"}], ";"}]], "Input",
+ CellChangeTimes->{{3.7808314587238503`*^9, 3.7808314626231947`*^9}, 
+   3.780831506587288*^9, {3.780831558226982*^9, 3.7808315752222357`*^9}, {
+   3.7808316315055013`*^9, 3.780831643410425*^9}, 3.7814326390535154`*^9, {
+   3.781863806178314*^9, 3.7818638356244993`*^9}, {3.781863870076352*^9, 
+   3.781863880995703*^9}, {3.8913400443431067`*^9, 3.891340048408159*^9}, 
+   3.8913401109306917`*^9, {3.891340212716953*^9, 3.8913402239881086`*^9}, {
+   3.891340313843748*^9, 3.891340332699344*^9}},
+ CellLabel->
+  "In[220]:=",ExpressionUUID->"41766b29-1fb8-4c14-bbb0-0bee9c57df05"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"fileNamesDataSetII", "=", 
+   RowBox[{"FileNames", "[", 
+    RowBox[{"\"\<*.json\>\"", ",", 
+     RowBox[{"FileNameJoin", "[", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"NotebookDirectory", "[", "]"}], ",", "\"\<Data Set II\>\"", 
+        ",", "\"\<Processed Data\>\""}], "}"}], "]"}]}], "]"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.8913401644220486`*^9, 3.8913402031620913`*^9}, {
+  3.8913402376980004`*^9, 3.8913402472027807`*^9}, {3.891340345773427*^9, 
+  3.8913403479425664`*^9}},
+ CellLabel->
+  "In[221]:=",ExpressionUUID->"b8b34037-469c-4862-9b67-94b32b55d00a"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Length", "[", "fileNamesDataSetII", "]"}]], "Input",
+ CellChangeTimes->{{3.89134020460931*^9, 3.891340206831665*^9}, 
+   3.8913402574502325`*^9, 3.891340350229515*^9},
+ CellLabel->
+  "In[222]:=",ExpressionUUID->"2e430fff-93fe-454e-aa31-c3dadc74e389"],
+
+Cell[BoxData["44"], "Output",
+ CellChangeTimes->{3.891340207392634*^9, 3.8913403617565103`*^9},
+ CellLabel->
+  "Out[222]=",ExpressionUUID->"feba5d2a-5fa2-4476-8882-26c73c615e20"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Length", "[", "fileNamesSMD2020", "]"}]], "Input",
+ CellChangeTimes->{{3.8913402649216022`*^9, 3.8913402737790966`*^9}, {
+  3.891340352715294*^9, 3.8913403568851523`*^9}},
+ CellLabel->
+  "In[223]:=",ExpressionUUID->"e3b9556e-e5b5-470e-8e51-47aa9e9428b3"],
+
+Cell[BoxData["44"], "Output",
+ CellChangeTimes->{3.8913402745763836`*^9, 3.8913403618065243`*^9},
+ CellLabel->
+  "Out[223]=",ExpressionUUID->"d906c8d5-de52-48c0-977c-d2a68065f879"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"neighFNamesSMD2020", "=", 
+   RowBox[{"FileNames", "[", 
+    RowBox[{"\"\<*Comp.mx\>\"", ",", 
+     RowBox[{"FileNameJoin", "[", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"ParentDirectory", "[", 
+         RowBox[{"NotebookDirectory", "[", "]"}], "]"}], ",", 
+        "\"\<dataPreprocessing\>\"", ",", "\"\<SMD_2020_NG6\>\"", ",", 
+        "\"\<Results\>\""}], "}"}], "]"}]}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.891350806354557*^9, 3.8913508700301886`*^9}, {
+  3.8913538740331564`*^9, 3.8913538799553213`*^9}, {3.8913539791677074`*^9, 
+  3.891353997252759*^9}},
+ CellLabel->"In[7]:=",ExpressionUUID->"12b7f93e-325f-46bd-a0fb-56bcef98d50e"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"Export", "[", 
+     RowBox[{
+      RowBox[{"FileNameJoin", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"NotebookDirectory", "[", "]"}], ",", "\"\<Data Set II\>\"", 
+         ",", "\"\<Neighbour Comp Files\>\"", ",", 
+         RowBox[{
+          RowBox[{"FileBaseName", "[", "#", "]"}], "<>", "\"\<.json\>\""}]}], 
+        "}"}], "]"}], ",", 
+      RowBox[{"Import", "[", "#", "]"}], ",", "\"\<ExpressionJSON\>\""}], 
+     "]"}], "&"}], "/@", "neighFNamesSMD2020"}], ";"}]], "Input",
+ CellChangeTimes->{{3.7808314587238503`*^9, 3.7808314626231947`*^9}, 
+   3.780831506587288*^9, {3.780831558226982*^9, 3.7808315752222357`*^9}, {
+   3.7808316315055013`*^9, 3.780831643410425*^9}, 3.7814326390535154`*^9, {
+   3.781863806178314*^9, 3.7818638356244993`*^9}, {3.781863870076352*^9, 
+   3.781863880995703*^9}, {3.8913400443431067`*^9, 3.891340048408159*^9}, 
+   3.8913401109306917`*^9, {3.891340212716953*^9, 3.8913402239881086`*^9}, {
+   3.891350911285754*^9, 3.8913509218146906`*^9}, 3.891353883967783*^9, {
+   3.891353925244633*^9, 3.8913539259320135`*^9}, {3.8913539839126806`*^9, 
+   3.8913540016842036`*^9}},
+ CellLabel->"In[8]:=",ExpressionUUID->"92431742-6754-42f7-9f67-e217d8c582a6"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Data set III", "Section",
+ CellChangeTimes->{{3.8913402815633*^9, 3.891340284855686*^9}, 
+   3.8913403680128965`*^9},ExpressionUUID->"e251da24-dc98-467c-adab-\
+50877faf2e75"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"fileNamesNS2016", "=", 
+   RowBox[{"FileNames", "[", 
+    RowBox[{"\"\<*FinalData.mx\>\"", ",", 
+     RowBox[{"FileNameJoin", "[", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"ParentDirectory", "[", 
+         RowBox[{"NotebookDirectory", "[", "]"}], "]"}], ",", 
+        "\"\<dataPreprocessing\>\"", ",", "\"\<NS_2016_NG6\>\"", ",", 
+        "\"\<EmbryoFeatures\>\""}], "}"}], "]"}]}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.780831272215437*^9, 3.7808313292124515`*^9}, 
+   3.781863769216737*^9, 3.8913400182877455`*^9, 3.8913400579827166`*^9, {
+   3.8913402103455744`*^9, 3.891340220308651*^9}, {3.8913403020803967`*^9, 
+   3.8913403097729616`*^9}, {3.891340371032881*^9, 3.891340380393526*^9}},
+ CellLabel->
+  "In[224]:=",ExpressionUUID->"9f52db9f-7abc-4f2c-8102-5ba5e1e02f94"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"Export", "[", 
+     RowBox[{
+      RowBox[{"FileNameJoin", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"NotebookDirectory", "[", "]"}], ",", "\"\<Data Set III\>\"",
+          ",", "\"\<Processed Data\>\"", ",", 
+         RowBox[{
+          RowBox[{"FileBaseName", "[", "#", "]"}], "<>", "\"\<.json\>\""}]}], 
+        "}"}], "]"}], ",", 
+      RowBox[{"Import", "[", "#", "]"}], ",", "\"\<ExpressionJSON\>\""}], 
+     "]"}], "&"}], "/@", "fileNamesNS2016"}], ";"}]], "Input",
+ CellChangeTimes->{{3.7808314587238503`*^9, 3.7808314626231947`*^9}, 
+   3.780831506587288*^9, {3.780831558226982*^9, 3.7808315752222357`*^9}, {
+   3.7808316315055013`*^9, 3.780831643410425*^9}, 3.7814326390535154`*^9, {
+   3.781863806178314*^9, 3.7818638356244993`*^9}, {3.781863870076352*^9, 
+   3.781863880995703*^9}, {3.8913400443431067`*^9, 3.891340048408159*^9}, 
+   3.8913401109306917`*^9, {3.891340212716953*^9, 3.8913402239881086`*^9}, {
+   3.891340313843748*^9, 3.891340332699344*^9}, {3.891340384780583*^9, 
+   3.8913403865986495`*^9}},
+ CellLabel->
+  "In[225]:=",ExpressionUUID->"94e7cdbd-d16e-4112-95bb-4e3241f6a1d4"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"fileNamesDataSetIII", "=", 
+   RowBox[{"FileNames", "[", 
+    RowBox[{"\"\<*.json\>\"", ",", 
+     RowBox[{"FileNameJoin", "[", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"NotebookDirectory", "[", "]"}], ",", "\"\<Data Set III\>\"", 
+        ",", "\"\<Processed Data\>\""}], "}"}], "]"}]}], "]"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.8913401644220486`*^9, 3.8913402031620913`*^9}, {
+  3.8913402376980004`*^9, 3.8913402472027807`*^9}, {3.891340345773427*^9, 
+  3.8913403479425664`*^9}, {3.891340389067626*^9, 3.8913403914425054`*^9}},
+ CellLabel->
+  "In[226]:=",ExpressionUUID->"dea287a1-7c65-4e19-b669-d940dcd1ea63"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Length", "[", "fileNamesDataSetIII", "]"}]], "Input",
+ CellChangeTimes->{{3.89134020460931*^9, 3.891340206831665*^9}, 
+   3.8913402574502325`*^9, 3.891340350229515*^9, 3.8913403946406746`*^9},
+ CellLabel->
+  "In[227]:=",ExpressionUUID->"920525d6-7976-46a4-8425-fa03075fa45d"],
+
+Cell[BoxData["147"], "Output",
+ CellChangeTimes->{3.891340207392634*^9, 3.8913403617565103`*^9, 
+  3.891340407369546*^9},
+ CellLabel->
+  "Out[227]=",ExpressionUUID->"7610d49c-7e1b-4615-af39-c3e48904aa34"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Length", "[", "fileNamesNS2016", "]"}]], "Input",
+ CellChangeTimes->{{3.8913402649216022`*^9, 3.8913402737790966`*^9}, {
+   3.891340352715294*^9, 3.8913403568851523`*^9}, 3.891340398999265*^9},
+ CellLabel->
+  "In[228]:=",ExpressionUUID->"deb34b6e-8665-4a9c-b60e-51255e2035a5"],
+
+Cell[BoxData["147"], "Output",
+ CellChangeTimes->{3.8913402745763836`*^9, 3.8913403618065243`*^9, 
+  3.891340407402943*^9},
+ CellLabel->
+  "Out[228]=",ExpressionUUID->"02b313c3-c8f8-435c-9d13-3001cd63df85"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"neighFNamesNS2016", "=", 
+   RowBox[{"FileNames", "[", 
+    RowBox[{"\"\<*Comp.mx\>\"", ",", 
+     RowBox[{"FileNameJoin", "[", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"ParentDirectory", "[", 
+         RowBox[{"NotebookDirectory", "[", "]"}], "]"}], ",", 
+        "\"\<dataPreprocessing\>\"", ",", "\"\<NS_2016_NG6\>\"", ",", 
+        "\"\<Results\>\""}], "}"}], "]"}]}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.891350806354557*^9, 3.8913508700301886`*^9}, {
+  3.8913538740331564`*^9, 3.8913538799553213`*^9}, {3.8913539791677074`*^9, 
+  3.891353997252759*^9}, {3.891354055522416*^9, 3.8913540642199326`*^9}},
+ CellLabel->"In[9]:=",ExpressionUUID->"30987bfe-de06-4dfd-8e50-9206687c5343"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"Export", "[", 
+     RowBox[{
+      RowBox[{"FileNameJoin", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"NotebookDirectory", "[", "]"}], ",", "\"\<Data Set III\>\"",
+          ",", "\"\<Neighbour Comp Files\>\"", ",", 
+         RowBox[{
+          RowBox[{"FileBaseName", "[", "#", "]"}], "<>", "\"\<.json\>\""}]}], 
+        "}"}], "]"}], ",", 
+      RowBox[{"Import", "[", "#", "]"}], ",", "\"\<ExpressionJSON\>\""}], 
+     "]"}], "&"}], "/@", "neighFNamesNS2016"}], ";"}]], "Input",
+ CellChangeTimes->{{3.7808314587238503`*^9, 3.7808314626231947`*^9}, 
+   3.780831506587288*^9, {3.780831558226982*^9, 3.7808315752222357`*^9}, {
+   3.7808316315055013`*^9, 3.780831643410425*^9}, 3.7814326390535154`*^9, {
+   3.781863806178314*^9, 3.7818638356244993`*^9}, {3.781863870076352*^9, 
+   3.781863880995703*^9}, {3.8913400443431067`*^9, 3.891340048408159*^9}, 
+   3.8913401109306917`*^9, {3.891340212716953*^9, 3.8913402239881086`*^9}, {
+   3.891350911285754*^9, 3.8913509218146906`*^9}, 3.891353883967783*^9, {
+   3.891353925244633*^9, 3.8913539259320135`*^9}, {3.8913539839126806`*^9, 
+   3.8913540016842036`*^9}, {3.891354051267476*^9, 3.891354070853834*^9}},
+ CellLabel->"In[10]:=",ExpressionUUID->"8228cd37-d5db-4d8a-b977-03302d3420e7"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Data set IV", "Section",
+ CellChangeTimes->{{3.8913402815633*^9, 3.891340284855686*^9}, 
+   3.8913403680128965`*^9, {3.8913404137106485`*^9, 
+   3.891340416014042*^9}},ExpressionUUID->"08aeb67d-1b00-4c4d-a624-\
+feff412217f0"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"fileNamesNRatG6Gt", "=", 
+   RowBox[{"FileNames", "[", 
+    RowBox[{"\"\<*FinalData.mx\>\"", ",", 
+     RowBox[{"FileNameJoin", "[", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"ParentDirectory", "[", 
+         RowBox[{"NotebookDirectory", "[", "]"}], "]"}], ",", 
+        "\"\<dataPreprocessing\>\"", ",", "\"\<NS_2020_NRatG6Gt\>\"", ",", 
+        "\"\<EmbryoFeatures\>\""}], "}"}], "]"}]}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.780831272215437*^9, 3.7808313292124515`*^9}, 
+   3.781863769216737*^9, 3.8913400182877455`*^9, 3.8913400579827166`*^9, {
+   3.8913402103455744`*^9, 3.891340220308651*^9}, {3.8913403020803967`*^9, 
+   3.8913403097729616`*^9}, {3.891340371032881*^9, 3.891340380393526*^9}, {
+   3.8913404685488276`*^9, 3.891340476758047*^9}},
+ CellLabel->
+  "In[229]:=",ExpressionUUID->"90c5dbad-81ab-44e4-bb1b-07dc5cfa0976"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"Export", "[", 
+     RowBox[{
+      RowBox[{"FileNameJoin", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"NotebookDirectory", "[", "]"}], ",", "\"\<Data Set IV\>\"", 
+         ",", "\"\<Processed Data\>\"", ",", 
+         RowBox[{
+          RowBox[{"FileBaseName", "[", "#", "]"}], "<>", "\"\<.json\>\""}]}], 
+        "}"}], "]"}], ",", 
+      RowBox[{"Import", "[", "#", "]"}], ",", "\"\<ExpressionJSON\>\""}], 
+     "]"}], "&"}], "/@", "fileNamesNRatG6Gt"}], ";"}]], "Input",
+ CellChangeTimes->{{3.7808314587238503`*^9, 3.7808314626231947`*^9}, 
+   3.780831506587288*^9, {3.780831558226982*^9, 3.7808315752222357`*^9}, {
+   3.7808316315055013`*^9, 3.780831643410425*^9}, 3.7814326390535154`*^9, {
+   3.781863806178314*^9, 3.7818638356244993`*^9}, {3.781863870076352*^9, 
+   3.781863880995703*^9}, {3.8913400443431067`*^9, 3.891340048408159*^9}, 
+   3.8913401109306917`*^9, {3.891340212716953*^9, 3.8913402239881086`*^9}, {
+   3.891340313843748*^9, 3.891340332699344*^9}, {3.891340384780583*^9, 
+   3.8913403865986495`*^9}, {3.8913404804296494`*^9, 3.891340484003146*^9}},
+ CellLabel->
+  "In[230]:=",ExpressionUUID->"6eb048f8-68d8-4e3d-85bc-4e6b3d97b74d"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"fileNamesDataSetIV", "=", 
+   RowBox[{"FileNames", "[", 
+    RowBox[{"\"\<*.json\>\"", ",", 
+     RowBox[{"FileNameJoin", "[", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"NotebookDirectory", "[", "]"}], ",", "\"\<Data Set IV\>\"", 
+        ",", "\"\<Processed Data\>\""}], "}"}], "]"}]}], "]"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.8913401644220486`*^9, 3.8913402031620913`*^9}, {
+  3.8913402376980004`*^9, 3.8913402472027807`*^9}, {3.891340345773427*^9, 
+  3.8913403479425664`*^9}, {3.891340389067626*^9, 3.8913403914425054`*^9}, {
+  3.891340488152115*^9, 3.8913404914063296`*^9}},
+ CellLabel->
+  "In[231]:=",ExpressionUUID->"40b803fe-c227-4f26-8284-0121d73ef663"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Length", "[", "fileNamesDataSetIV", "]"}]], "Input",
+ CellChangeTimes->{{3.89134020460931*^9, 3.891340206831665*^9}, 
+   3.8913402574502325`*^9, 3.891340350229515*^9, 3.8913403946406746`*^9, 
+   3.891340497728635*^9},
+ CellLabel->
+  "In[232]:=",ExpressionUUID->"5eb190c5-95a6-4321-b7a0-d852af766394"],
+
+Cell[BoxData["76"], "Output",
+ CellChangeTimes->{3.891340207392634*^9, 3.8913403617565103`*^9, 
+  3.891340407369546*^9, 3.891340508822756*^9},
+ CellLabel->
+  "Out[232]=",ExpressionUUID->"4ec14aa9-640f-4f6d-9bde-629250e82d64"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Length", "[", "fileNamesNRatG6Gt", "]"}]], "Input",
+ CellChangeTimes->{{3.8913402649216022`*^9, 3.8913402737790966`*^9}, {
+   3.891340352715294*^9, 3.8913403568851523`*^9}, 3.891340398999265*^9, 
+   3.8913405022496896`*^9},
+ CellLabel->
+  "In[233]:=",ExpressionUUID->"9dd3d05e-977e-4504-a83b-1e926f9eafc9"],
+
+Cell[BoxData["76"], "Output",
+ CellChangeTimes->{3.8913402745763836`*^9, 3.8913403618065243`*^9, 
+  3.891340407402943*^9, 3.891340508858577*^9},
+ CellLabel->
+  "Out[233]=",ExpressionUUID->"38457667-7360-463e-a415-46ec0733e8d0"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"neighFNamesNRatG6Gt", "=", 
+   RowBox[{"FileNames", "[", 
+    RowBox[{"\"\<*Comp.mx\>\"", ",", 
+     RowBox[{"FileNameJoin", "[", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"ParentDirectory", "[", 
+         RowBox[{"NotebookDirectory", "[", "]"}], "]"}], ",", 
+        "\"\<dataPreprocessing\>\"", ",", "\"\<NS_2020_NRatG6Gt\>\"", ",", 
+        "\"\<Results\>\""}], "}"}], "]"}]}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.891350806354557*^9, 3.8913508700301886`*^9}, {
+  3.8913538740331564`*^9, 3.8913538799553213`*^9}, {3.8913539791677074`*^9, 
+  3.891353997252759*^9}, {3.891354055522416*^9, 3.8913540988822327`*^9}},
+ CellLabel->"In[11]:=",ExpressionUUID->"7237e9a2-3bbf-4fc6-94e0-ea661d6757b3"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"Export", "[", 
+     RowBox[{
+      RowBox[{"FileNameJoin", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"NotebookDirectory", "[", "]"}], ",", "\"\<Data Set IV\>\"", 
+         ",", "\"\<Neighbour Comp Files\>\"", ",", 
+         RowBox[{
+          RowBox[{"FileBaseName", "[", "#", "]"}], "<>", "\"\<.json\>\""}]}], 
+        "}"}], "]"}], ",", 
+      RowBox[{"Import", "[", "#", "]"}], ",", "\"\<ExpressionJSON\>\""}], 
+     "]"}], "&"}], "/@", "neighFNamesNRatG6Gt"}], ";"}]], "Input",
+ CellChangeTimes->{{3.7808314587238503`*^9, 3.7808314626231947`*^9}, 
+   3.780831506587288*^9, {3.780831558226982*^9, 3.7808315752222357`*^9}, {
+   3.7808316315055013`*^9, 3.780831643410425*^9}, 3.7814326390535154`*^9, {
+   3.781863806178314*^9, 3.7818638356244993`*^9}, {3.781863870076352*^9, 
+   3.781863880995703*^9}, {3.8913400443431067`*^9, 3.891340048408159*^9}, 
+   3.8913401109306917`*^9, {3.891340212716953*^9, 3.8913402239881086`*^9}, {
+   3.891350911285754*^9, 3.8913509218146906`*^9}, 3.891353883967783*^9, {
+   3.891353925244633*^9, 3.8913539259320135`*^9}, {3.8913539839126806`*^9, 
+   3.8913540016842036`*^9}, {3.891354051267476*^9, 3.891354104849536*^9}},
+ CellLabel->"In[12]:=",ExpressionUUID->"70bfda85-965d-4712-9d5f-78bc0105f62d"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Data set V", "Section",
+ CellChangeTimes->{{3.8913402815633*^9, 3.891340284855686*^9}, 
+   3.8913403680128965`*^9, {3.8913404137106485`*^9, 3.891340416014042*^9}, 
+   3.891340524521165*^9},ExpressionUUID->"51e2c75a-c50c-47be-a3f4-\
+ee84e157668f"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"fileNamesNRatG6Rb", "=", 
+   RowBox[{"FileNames", "[", 
+    RowBox[{"\"\<*FinalData.mx\>\"", ",", 
+     RowBox[{"FileNameJoin", "[", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"ParentDirectory", "[", 
+         RowBox[{"NotebookDirectory", "[", "]"}], "]"}], ",", 
+        "\"\<dataPreprocessing\>\"", ",", "\"\<NS_2020_NRatG6Rb\>\"", ",", 
+        "\"\<EmbryoFeatures\>\""}], "}"}], "]"}]}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.780831272215437*^9, 3.7808313292124515`*^9}, 
+   3.781863769216737*^9, 3.8913400182877455`*^9, 3.8913400579827166`*^9, {
+   3.8913402103455744`*^9, 3.891340220308651*^9}, {3.8913403020803967`*^9, 
+   3.8913403097729616`*^9}, {3.891340371032881*^9, 3.891340380393526*^9}, {
+   3.8913404685488276`*^9, 3.891340476758047*^9}, {3.89134054290777*^9, 
+   3.8913405464128056`*^9}},
+ CellLabel->
+  "In[234]:=",ExpressionUUID->"205f3796-2307-43fc-8cc9-b434ace38d74"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"Export", "[", 
+     RowBox[{
+      RowBox[{"FileNameJoin", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"NotebookDirectory", "[", "]"}], ",", "\"\<Data Set V\>\"", 
+         ",", "\"\<Processed Data\>\"", ",", 
+         RowBox[{
+          RowBox[{"FileBaseName", "[", "#", "]"}], "<>", "\"\<.json\>\""}]}], 
+        "}"}], "]"}], ",", 
+      RowBox[{"Import", "[", "#", "]"}], ",", "\"\<ExpressionJSON\>\""}], 
+     "]"}], "&"}], "/@", "fileNamesNRatG6Rb"}], ";"}]], "Input",
+ CellChangeTimes->{{3.7808314587238503`*^9, 3.7808314626231947`*^9}, 
+   3.780831506587288*^9, {3.780831558226982*^9, 3.7808315752222357`*^9}, {
+   3.7808316315055013`*^9, 3.780831643410425*^9}, 3.7814326390535154`*^9, {
+   3.781863806178314*^9, 3.7818638356244993`*^9}, {3.781863870076352*^9, 
+   3.781863880995703*^9}, {3.8913400443431067`*^9, 3.891340048408159*^9}, 
+   3.8913401109306917`*^9, {3.891340212716953*^9, 3.8913402239881086`*^9}, {
+   3.891340313843748*^9, 3.891340332699344*^9}, {3.891340384780583*^9, 
+   3.8913403865986495`*^9}, {3.8913404804296494`*^9, 3.891340484003146*^9}, {
+   3.891340549296855*^9, 3.891340552901432*^9}},
+ CellLabel->
+  "In[235]:=",ExpressionUUID->"264ee45c-9bba-44c9-be05-e112dffb7f28"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"fileNamesDataSetV", "=", 
+   RowBox[{"FileNames", "[", 
+    RowBox[{"\"\<*.json\>\"", ",", 
+     RowBox[{"FileNameJoin", "[", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"NotebookDirectory", "[", "]"}], ",", "\"\<Data Set V\>\"", 
+        ",", "\"\<Processed Data\>\""}], "}"}], "]"}]}], "]"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.8913401644220486`*^9, 3.8913402031620913`*^9}, {
+  3.8913402376980004`*^9, 3.8913402472027807`*^9}, {3.891340345773427*^9, 
+  3.8913403479425664`*^9}, {3.891340389067626*^9, 3.8913403914425054`*^9}, {
+  3.891340488152115*^9, 3.8913404914063296`*^9}, {3.891340555421714*^9, 
+  3.8913405578416853`*^9}},
+ CellLabel->
+  "In[236]:=",ExpressionUUID->"3955fbde-fd2c-455c-adb2-68cdef0d02c1"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Length", "[", "fileNamesDataSetV", "]"}]], "Input",
+ CellChangeTimes->{{3.89134020460931*^9, 3.891340206831665*^9}, 
+   3.8913402574502325`*^9, 3.891340350229515*^9, 3.8913403946406746`*^9, 
+   3.891340497728635*^9, 3.8913405599929814`*^9},
+ CellLabel->
+  "In[237]:=",ExpressionUUID->"6fef1c2e-8371-441f-ae6d-3283a7b5ce0b"],
+
+Cell[BoxData["28"], "Output",
+ CellChangeTimes->{3.891340207392634*^9, 3.8913403617565103`*^9, 
+  3.891340407369546*^9, 3.891340508822756*^9, 3.8913405670952063`*^9},
+ CellLabel->
+  "Out[237]=",ExpressionUUID->"4574faa4-d4a8-4796-a915-41bde556a804"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Length", "[", "fileNamesNRatG6Rb", "]"}]], "Input",
+ CellChangeTimes->{{3.8913402649216022`*^9, 3.8913402737790966`*^9}, {
+   3.891340352715294*^9, 3.8913403568851523`*^9}, 3.891340398999265*^9, 
+   3.8913405022496896`*^9, 3.8913405629984436`*^9},
+ CellLabel->
+  "In[238]:=",ExpressionUUID->"787f04f4-47bb-4ce8-b68e-a5fcd129d7b2"],
+
+Cell[BoxData["28"], "Output",
+ CellChangeTimes->{3.8913402745763836`*^9, 3.8913403618065243`*^9, 
+  3.891340407402943*^9, 3.891340508858577*^9, 3.891340567110793*^9},
+ CellLabel->
+  "Out[238]=",ExpressionUUID->"976eca24-93e5-43a3-aa78-97c56fa54a98"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"neighFNamesNRatG6Rb", "=", 
+   RowBox[{"FileNames", "[", 
+    RowBox[{"\"\<*Comp.mx\>\"", ",", 
+     RowBox[{"FileNameJoin", "[", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"ParentDirectory", "[", 
+         RowBox[{"NotebookDirectory", "[", "]"}], "]"}], ",", 
+        "\"\<dataPreprocessing\>\"", ",", "\"\<NS_2020_NRatG6Rb\>\"", ",", 
+        "\"\<Results\>\""}], "}"}], "]"}]}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.891350806354557*^9, 3.8913508700301886`*^9}, {
+  3.8913538740331564`*^9, 3.8913538799553213`*^9}, {3.8913539791677074`*^9, 
+  3.891353997252759*^9}, {3.891354055522416*^9, 3.89135412932508*^9}},
+ CellLabel->"In[13]:=",ExpressionUUID->"b3fa5060-1eba-4f03-85b2-7747c9f2470d"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"Export", "[", 
+     RowBox[{
+      RowBox[{"FileNameJoin", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"NotebookDirectory", "[", "]"}], ",", "\"\<Data Set V\>\"", 
+         ",", "\"\<Neighbour Comp Files\>\"", ",", 
+         RowBox[{
+          RowBox[{"FileBaseName", "[", "#", "]"}], "<>", "\"\<.json\>\""}]}], 
+        "}"}], "]"}], ",", 
+      RowBox[{"Import", "[", "#", "]"}], ",", "\"\<ExpressionJSON\>\""}], 
+     "]"}], "&"}], "/@", "neighFNamesNRatG6Rb"}], ";"}]], "Input",
+ CellChangeTimes->{{3.7808314587238503`*^9, 3.7808314626231947`*^9}, 
+   3.780831506587288*^9, {3.780831558226982*^9, 3.7808315752222357`*^9}, {
+   3.7808316315055013`*^9, 3.780831643410425*^9}, 3.7814326390535154`*^9, {
+   3.781863806178314*^9, 3.7818638356244993`*^9}, {3.781863870076352*^9, 
+   3.781863880995703*^9}, {3.8913400443431067`*^9, 3.891340048408159*^9}, 
+   3.8913401109306917`*^9, {3.891340212716953*^9, 3.8913402239881086`*^9}, {
+   3.891350911285754*^9, 3.8913509218146906`*^9}, 3.891353883967783*^9, {
+   3.891353925244633*^9, 3.8913539259320135`*^9}, {3.8913539839126806`*^9, 
+   3.8913540016842036`*^9}, {3.891354051267476*^9, 3.8913541355381017`*^9}},
+ CellLabel->"In[14]:=",ExpressionUUID->"e8ad05b3-8f9c-4c0f-b16f-701975044bc2"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Data set VI", "Section",
+ CellChangeTimes->{{3.8913402815633*^9, 3.891340284855686*^9}, 
+   3.8913403680128965`*^9, {3.8913404137106485`*^9, 3.891340416014042*^9}, 
+   3.891340524521165*^9, 
+   3.891340580296042*^9},ExpressionUUID->"b6872047-3785-459b-93d3-\
+37ff12175e56"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"fileNamesNS2020", "=", 
+   RowBox[{"FileNames", "[", 
+    RowBox[{"\"\<*FinalData.mx\>\"", ",", 
+     RowBox[{"FileNameJoin", "[", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"ParentDirectory", "[", 
+         RowBox[{"NotebookDirectory", "[", "]"}], "]"}], ",", 
+        "\"\<dataPreprocessing\>\"", ",", "\"\<NS_2020_NG6\>\"", ",", 
+        "\"\<EmbryoFeatures\>\""}], "}"}], "]"}]}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.780831272215437*^9, 3.7808313292124515`*^9}, 
+   3.781863769216737*^9, 3.8913400182877455`*^9, 3.8913400579827166`*^9, {
+   3.8913402103455744`*^9, 3.891340220308651*^9}, {3.8913403020803967`*^9, 
+   3.8913403097729616`*^9}, {3.891340371032881*^9, 3.891340380393526*^9}, {
+   3.8913404685488276`*^9, 3.891340476758047*^9}, {3.89134054290777*^9, 
+   3.8913405464128056`*^9}, {3.891340583282448*^9, 3.8913405912909265`*^9}},
+ CellLabel->
+  "In[239]:=",ExpressionUUID->"8948a2a4-3c1b-4f31-9083-a6c61e28c1ff"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"Export", "[", 
+     RowBox[{
+      RowBox[{"FileNameJoin", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"NotebookDirectory", "[", "]"}], ",", "\"\<Data Set VI\>\"", 
+         ",", "\"\<Processed Data\>\"", ",", 
+         RowBox[{
+          RowBox[{"FileBaseName", "[", "#", "]"}], "<>", "\"\<.json\>\""}]}], 
+        "}"}], "]"}], ",", 
+      RowBox[{"Import", "[", "#", "]"}], ",", "\"\<ExpressionJSON\>\""}], 
+     "]"}], "&"}], "/@", "fileNamesNS2020"}], ";"}]], "Input",
+ CellChangeTimes->{{3.7808314587238503`*^9, 3.7808314626231947`*^9}, 
+   3.780831506587288*^9, {3.780831558226982*^9, 3.7808315752222357`*^9}, {
+   3.7808316315055013`*^9, 3.780831643410425*^9}, 3.7814326390535154`*^9, {
+   3.781863806178314*^9, 3.7818638356244993`*^9}, {3.781863870076352*^9, 
+   3.781863880995703*^9}, {3.8913400443431067`*^9, 3.891340048408159*^9}, 
+   3.8913401109306917`*^9, {3.891340212716953*^9, 3.8913402239881086`*^9}, {
+   3.891340313843748*^9, 3.891340332699344*^9}, {3.891340384780583*^9, 
+   3.8913403865986495`*^9}, {3.8913404804296494`*^9, 3.891340484003146*^9}, {
+   3.891340549296855*^9, 3.891340552901432*^9}, {3.891340602601753*^9, 
+   3.89134060453715*^9}},
+ CellLabel->
+  "In[240]:=",ExpressionUUID->"ab81dfc9-811f-4da9-8be9-feda285c519e"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"fileNamesDataSetVI", "=", 
+   RowBox[{"FileNames", "[", 
+    RowBox[{"\"\<*.json\>\"", ",", 
+     RowBox[{"FileNameJoin", "[", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"NotebookDirectory", "[", "]"}], ",", "\"\<Data Set VI\>\"", 
+        ",", "\"\<Processed Data\>\""}], "}"}], "]"}]}], "]"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.8913401644220486`*^9, 3.8913402031620913`*^9}, {
+  3.8913402376980004`*^9, 3.8913402472027807`*^9}, {3.891340345773427*^9, 
+  3.8913403479425664`*^9}, {3.891340389067626*^9, 3.8913403914425054`*^9}, {
+  3.891340488152115*^9, 3.8913404914063296`*^9}, {3.891340555421714*^9, 
+  3.8913405578416853`*^9}, {3.8913406075249863`*^9, 3.891340615117176*^9}},
+ CellLabel->
+  "In[242]:=",ExpressionUUID->"1026d5cf-a347-4486-859f-0574d7d7c29f"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Length", "[", "fileNamesDataSetVI", "]"}]], "Input",
+ CellChangeTimes->{{3.89134020460931*^9, 3.891340206831665*^9}, 
+   3.8913402574502325`*^9, 3.891340350229515*^9, 3.8913403946406746`*^9, 
+   3.891340497728635*^9, 3.8913405599929814`*^9, 3.891340618468364*^9},
+ CellLabel->
+  "In[243]:=",ExpressionUUID->"69719182-a230-4605-86e2-6a158186ada2"],
+
+Cell[BoxData["192"], "Output",
+ CellChangeTimes->{3.891340207392634*^9, 3.8913403617565103`*^9, 
+  3.891340407369546*^9, 3.891340508822756*^9, 3.8913405670952063`*^9, 
+  3.89134062439605*^9},
+ CellLabel->
+  "Out[243]=",ExpressionUUID->"be78fa82-b362-4587-a4ca-b1c86f495812"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Length", "[", "fileNamesNS2020", "]"}]], "Input",
+ CellChangeTimes->{{3.8913402649216022`*^9, 3.8913402737790966`*^9}, {
+   3.891340352715294*^9, 3.8913403568851523`*^9}, 3.891340398999265*^9, 
+   3.8913405022496896`*^9, 3.8913405629984436`*^9, 3.891340622226341*^9},
+ CellLabel->
+  "In[244]:=",ExpressionUUID->"1dbb2a6b-5d76-4925-9b92-8d32b6f7028d"],
+
+Cell[BoxData["192"], "Output",
+ CellChangeTimes->{3.8913402745763836`*^9, 3.8913403618065243`*^9, 
+  3.891340407402943*^9, 3.891340508858577*^9, 3.891340567110793*^9, 
+  3.8913406252622943`*^9},
+ CellLabel->
+  "Out[244]=",ExpressionUUID->"7fe16ee8-803b-4811-875f-5723c97ef898"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"neighFNamesNS2020", "=", 
+   RowBox[{"FileNames", "[", 
+    RowBox[{"\"\<*Comp.mx\>\"", ",", 
+     RowBox[{"FileNameJoin", "[", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"ParentDirectory", "[", 
+         RowBox[{"NotebookDirectory", "[", "]"}], "]"}], ",", 
+        "\"\<dataPreprocessing\>\"", ",", "\"\<NS_2020_NG6\>\"", ",", 
+        "\"\<Results\>\""}], "}"}], "]"}]}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.891350806354557*^9, 3.8913508700301886`*^9}, {
+  3.8913538740331564`*^9, 3.8913538799553213`*^9}, {3.8913539791677074`*^9, 
+  3.891353997252759*^9}, {3.891354055522416*^9, 3.891354157672735*^9}},
+ CellLabel->"In[15]:=",ExpressionUUID->"1d350ecb-75ae-46c1-84af-960bb426d0cf"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"Export", "[", 
+     RowBox[{
+      RowBox[{"FileNameJoin", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"NotebookDirectory", "[", "]"}], ",", "\"\<Data Set VI\>\"", 
+         ",", "\"\<Neighbour Comp Files\>\"", ",", 
+         RowBox[{
+          RowBox[{"FileBaseName", "[", "#", "]"}], "<>", "\"\<.json\>\""}]}], 
+        "}"}], "]"}], ",", 
+      RowBox[{"Import", "[", "#", "]"}], ",", "\"\<ExpressionJSON\>\""}], 
+     "]"}], "&"}], "/@", "neighFNamesNS2020"}], ";"}]], "Input",
+ CellChangeTimes->{{3.7808314587238503`*^9, 3.7808314626231947`*^9}, 
+   3.780831506587288*^9, {3.780831558226982*^9, 3.7808315752222357`*^9}, {
+   3.7808316315055013`*^9, 3.780831643410425*^9}, 3.7814326390535154`*^9, {
+   3.781863806178314*^9, 3.7818638356244993`*^9}, {3.781863870076352*^9, 
+   3.781863880995703*^9}, {3.8913400443431067`*^9, 3.891340048408159*^9}, 
+   3.8913401109306917`*^9, {3.891340212716953*^9, 3.8913402239881086`*^9}, {
+   3.891350911285754*^9, 3.8913509218146906`*^9}, 3.891353883967783*^9, {
+   3.891353925244633*^9, 3.8913539259320135`*^9}, {3.8913539839126806`*^9, 
+   3.8913540016842036`*^9}, {3.891354051267476*^9, 3.8913541662898693`*^9}},
+ CellLabel->"In[16]:=",ExpressionUUID->"eb31affb-4ea1-464a-aafc-337207102c84"]
+}, Closed]]
+}, Open  ]]
+},
+WindowSize->{1440., 747.75},
+WindowMargins->{{Automatic, -4}, {Automatic, -6}},
+FrontEndVersion->"13.0 for Microsoft Windows (64-bit) (December 2, 2021)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"b3a88aa9-26ba-4b9d-bdc8-eb092623d50c"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 325, 5, 98, "Title",ExpressionUUID->"38343200-fd6c-4633-a263-bc3dba2e0ff8"],
+Cell[908, 29, 314, 7, 85, "Subtitle",ExpressionUUID->"e0348bdc-d68e-4e3c-8c83-5d05171355a2"],
+Cell[CellGroupData[{
+Cell[1247, 40, 156, 3, 75, "Section",ExpressionUUID->"863aaa12-f137-4d4d-b4b9-32c4b5fdbcc5"],
+Cell[1406, 45, 734, 16, 28, "Input",ExpressionUUID->"9dab6e71-2c08-439d-a5c0-f82b02eb7505"],
+Cell[2143, 63, 1079, 23, 28, "Input",ExpressionUUID->"046e21d0-91fd-4c79-8421-cc4602bee04a"],
+Cell[3225, 88, 758, 16, 28, "Input",ExpressionUUID->"23f1a5f7-cb0b-4a2a-8070-3899a470709a"],
+Cell[3986, 106, 1053, 23, 28, "Input",ExpressionUUID->"cedf1818-40f1-41df-b765-2ca1a5874138"],
+Cell[5042, 131, 566, 14, 28, "Input",ExpressionUUID->"5f887b3c-b517-4f4b-ac13-664104690896"],
+Cell[CellGroupData[{
+Cell[5633, 149, 251, 5, 28, "Input",ExpressionUUID->"362d507d-977f-4c49-b9fd-9c9dbb66ed7e"],
+Cell[5887, 156, 179, 3, 32, "Output",ExpressionUUID->"5f570d2d-b0c9-4f78-9d5e-5f838f49f139"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6103, 164, 298, 6, 28, "Input",ExpressionUUID->"0ac08a5d-b92d-44f8-b2d5-4cd2e808d166"],
+Cell[6404, 172, 181, 3, 32, "Output",ExpressionUUID->"e8ea516d-ffa1-412a-8c5f-8deeb87872e8"]
+}, Open  ]],
+Cell[6600, 178, 646, 14, 28, "Input",ExpressionUUID->"509b7f76-74a7-427d-b88a-6a7c0c1df920"],
+Cell[7249, 194, 1213, 24, 28, "Input",ExpressionUUID->"3f496b06-efc8-4467-a614-2f252b07dfa6"],
+Cell[8465, 220, 701, 15, 28, "Input",ExpressionUUID->"1533ddce-bc15-46fd-b725-6c805d73448b"],
+Cell[9169, 237, 1265, 25, 28, "Input",ExpressionUUID->"ae8332fc-5a84-4931-aa69-e29038448010"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[10471, 267, 154, 3, 61, "Section",ExpressionUUID->"489760c8-7154-46e4-af0b-5ec44e3dc54f"],
+Cell[10628, 272, 788, 17, 28, "Input",ExpressionUUID->"57e127e1-7bcc-4564-8260-0c572ce1c6a6"],
+Cell[11419, 291, 1130, 24, 28, "Input",ExpressionUUID->"41766b29-1fb8-4c14-bbb0-0bee9c57df05"],
+Cell[12552, 317, 619, 15, 28, "Input",ExpressionUUID->"b8b34037-469c-4862-9b67-94b32b55d00a"],
+Cell[CellGroupData[{
+Cell[13196, 336, 274, 5, 28, "Input",ExpressionUUID->"2e430fff-93fe-454e-aa31-c3dadc74e389"],
+Cell[13473, 343, 178, 3, 32, "Output",ExpressionUUID->"feba5d2a-5fa2-4476-8882-26c73c615e20"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[13688, 351, 278, 5, 28, "Input",ExpressionUUID->"e3b9556e-e5b5-470e-8e51-47aa9e9428b3"],
+Cell[13969, 358, 180, 3, 32, "Output",ExpressionUUID->"d906c8d5-de52-48c0-977c-d2a68065f879"]
+}, Open  ]],
+Cell[14164, 364, 697, 15, 28, "Input",ExpressionUUID->"12b7f93e-325f-46bd-a0fb-56bcef98d50e"],
+Cell[14864, 381, 1263, 25, 28, "Input",ExpressionUUID->"92431742-6754-42f7-9f67-e217d8c582a6"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[16164, 411, 180, 3, 61, "Section",ExpressionUUID->"e251da24-dc98-467c-adab-50877faf2e75"],
+Cell[16347, 416, 832, 17, 28, "Input",ExpressionUUID->"9f52db9f-7abc-4f2c-8102-5ba5e1e02f94"],
+Cell[17182, 435, 1182, 25, 28, "Input",ExpressionUUID->"94e7cdbd-d16e-4112-95bb-4e3241f6a1d4"],
+Cell[18367, 462, 669, 15, 28, "Input",ExpressionUUID->"dea287a1-7c65-4e19-b669-d940dcd1ea63"],
+Cell[CellGroupData[{
+Cell[19061, 481, 299, 5, 28, "Input",ExpressionUUID->"920525d6-7976-46a4-8425-fa03075fa45d"],
+Cell[19363, 488, 204, 4, 32, "Output",ExpressionUUID->"7610d49c-7e1b-4615-af39-c3e48904aa34"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[19604, 497, 300, 5, 28, "Input",ExpressionUUID->"deb34b6e-8665-4a9c-b60e-51255e2035a5"],
+Cell[19907, 504, 206, 4, 32, "Output",ExpressionUUID->"02b313c3-c8f8-435c-9d13-3001cd63df85"]
+}, Open  ]],
+Cell[20128, 511, 743, 15, 28, "Input",ExpressionUUID->"30987bfe-de06-4dfd-8e50-9206687c5343"],
+Cell[20874, 528, 1310, 25, 28, "Input",ExpressionUUID->"8228cd37-d5db-4d8a-b977-03302d3420e7"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[22221, 558, 231, 4, 61, "Section",ExpressionUUID->"08aeb67d-1b00-4c4d-a624-feff412217f0"],
+Cell[22455, 564, 891, 18, 28, "Input",ExpressionUUID->"90c5dbad-81ab-44e4-bb1b-07dc5cfa0976"],
+Cell[23349, 584, 1231, 25, 28, "Input",ExpressionUUID->"6eb048f8-68d8-4e3d-85bc-4e6b3d97b74d"],
+Cell[24583, 611, 718, 16, 28, "Input",ExpressionUUID->"40b803fe-c227-4f26-8284-0121d73ef663"],
+Cell[CellGroupData[{
+Cell[25326, 631, 324, 6, 28, "Input",ExpressionUUID->"5eb190c5-95a6-4321-b7a0-d852af766394"],
+Cell[25653, 639, 225, 4, 32, "Output",ExpressionUUID->"4ec14aa9-640f-4f6d-9bde-629250e82d64"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[25915, 648, 330, 6, 28, "Input",ExpressionUUID->"9dd3d05e-977e-4504-a83b-1e926f9eafc9"],
+Cell[26248, 656, 227, 4, 32, "Output",ExpressionUUID->"38457667-7360-463e-a415-46ec0733e8d0"]
+}, Open  ]],
+Cell[26490, 663, 751, 15, 28, "Input",ExpressionUUID->"7237e9a2-3bbf-4fc6-94e0-ea661d6757b3"],
+Cell[27244, 680, 1311, 25, 28, "Input",ExpressionUUID->"70bfda85-965d-4712-9d5f-78bc0105f62d"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[28592, 710, 252, 4, 61, "Section",ExpressionUUID->"51e2c75a-c50c-47be-a3f4-ee84e157668f"],
+Cell[28847, 716, 942, 19, 28, "Input",ExpressionUUID->"205f3796-2307-43fc-8cc9-b434ace38d74"],
+Cell[29792, 737, 1280, 26, 28, "Input",ExpressionUUID->"264ee45c-9bba-44c9-be05-e112dffb7f28"],
+Cell[31075, 765, 767, 17, 28, "Input",ExpressionUUID->"3955fbde-fd2c-455c-adb2-68cdef0d02c1"],
+Cell[CellGroupData[{
+Cell[31867, 786, 347, 6, 28, "Input",ExpressionUUID->"6fef1c2e-8371-441f-ae6d-3283a7b5ce0b"],
+Cell[32217, 794, 249, 4, 32, "Output",ExpressionUUID->"4574faa4-d4a8-4796-a915-41bde556a804"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[32503, 803, 354, 6, 28, "Input",ExpressionUUID->"787f04f4-47bb-4ce8-b68e-a5fcd129d7b2"],
+Cell[32860, 811, 249, 4, 32, "Output",ExpressionUUID->"976eca24-93e5-43a3-aa78-97c56fa54a98"]
+}, Open  ]],
+Cell[33124, 818, 748, 15, 28, "Input",ExpressionUUID->"b3fa5060-1eba-4f03-85b2-7747c9f2470d"],
+Cell[33875, 835, 1312, 25, 28, "Input",ExpressionUUID->"e8ad05b3-8f9c-4c0f-b16f-701975044bc2"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[35224, 865, 279, 5, 61, "Section",ExpressionUUID->"b6872047-3785-459b-93d3-37ff12175e56"],
+Cell[35506, 872, 983, 19, 28, "Input",ExpressionUUID->"8948a2a4-3c1b-4f31-9083-a6c61e28c1ff"],
+Cell[36492, 893, 1328, 27, 28, "Input",ExpressionUUID->"ab81dfc9-811f-4da9-8be9-feda285c519e"],
+Cell[37823, 922, 817, 17, 28, "Input",ExpressionUUID->"1026d5cf-a347-4486-859f-0574d7d7c29f"],
+Cell[CellGroupData[{
+Cell[38665, 943, 370, 6, 28, "Input",ExpressionUUID->"69719182-a230-4605-86e2-6a158186ada2"],
+Cell[39038, 951, 274, 5, 32, "Output",ExpressionUUID->"be78fa82-b362-4587-a4ca-b1c86f495812"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[39349, 961, 374, 6, 28, "Input",ExpressionUUID->"1dbb2a6b-5d76-4925-9b92-8d32b6f7028d"],
+Cell[39726, 969, 277, 5, 32, "Output",ExpressionUUID->"7fe16ee8-803b-4811-875f-5723c97ef898"]
+}, Open  ]],
+Cell[40018, 977, 742, 15, 28, "Input",ExpressionUUID->"1d350ecb-75ae-46c1-84af-960bb426d0cf"],
+Cell[40763, 994, 1311, 25, 28, "Input",ExpressionUUID->"eb31affb-4ea1-464a-aafc-337207102c84"]
+}, Closed]]
+}, Open  ]]
+}
+]
+*)
+
