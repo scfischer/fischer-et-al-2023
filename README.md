@@ -25,7 +25,7 @@ All figures that were generated with Mathematica can be found in the subfolders 
 
 For questions and comments please contact sabine.fischer@uni-wuerzburg.de
 
-The latest release is archived at Zenodo: 
+The latest release is archived at Zenodo: <a href="https://zenodo.org/badge/latestdoi/582916174"><img src="https://zenodo.org/badge/582916174.svg" alt="DOI"></a>
 
 
 <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
